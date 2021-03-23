@@ -4,10 +4,11 @@ import StarIcon from "@material-ui/icons/Star";
 import { useStateValue } from "../../StateProvider/StateProvider";
 import CustomButton from "../../Components/CustomButton";
 
-const Product = ({ id, title, image, price, rating }) => {
+const Product = ({ id, title, image, price, rating, toastHandler }) => {
   const [{ basket }, dispatch] = useStateValue();
   console.log(basket);
   const addToBasket = () => {
+    toastHandler();
     dispatch({
       type: "ADD_TO_BASKET",
       item: {

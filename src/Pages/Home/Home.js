@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Home.css";
 import Product from "../../Components/Product/Product";
+import Toast from "../../Components/Toast/Toast";
 import Carousel from "react-material-ui-carousel";
 import image1 from "../../images/image1.jpg";
 import image2 from "../../images/image2.jpg";
@@ -68,6 +69,14 @@ const products = [
 const carouselImages = [image1, image2, image3, image4, image5, image6];
 
 function Home() {
+  const [right, setRight] = useState(-300);
+
+  const toastHandler = () => {
+    setRight(0);
+    setTimeout(() => {
+      setRight(-300);
+    }, 1000);
+  };
   return (
     <div className="home">
       <div className="home__container">
@@ -99,6 +108,7 @@ function Home() {
                     price={product.price}
                     rating={product.rating}
                     image={product.image}
+                    toastHandler={toastHandler}
                   />
                 ))}
               </div>
@@ -111,6 +121,7 @@ function Home() {
           /> */}
         </div>
       </div>
+      <Toast right={right} />
     </div>
   );
 }

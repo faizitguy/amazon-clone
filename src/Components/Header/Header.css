@@ -60,11 +60,11 @@
   margin-right: 10px;
 }
 
-/* @media (max-width: 800px) {
+@media (max-width: 800px) {
   .header__search {
     display: none;
   }
   .header__nav {
     justify-content: space-between !important;
   }
-} */
+}
